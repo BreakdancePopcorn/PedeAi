@@ -11,3 +11,5 @@ Funções planejadas:
 Botões
 Customização simplística
 ```
+Arquivos adicionais (temporariamente no Drive):
+https://drive.google.com/file/d/1WntBhvNiqPJdfHMPo0pNxB_vYr0mloQd/view?usp=drive_link
