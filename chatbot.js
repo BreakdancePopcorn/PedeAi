@@ -1,6 +1,9 @@
 // leitor de qr code
 const qrcode = require('qrcode-terminal');
+const fs = require('fs');
 const { Client, Buttons, List, MessageMedia } = require('whatsapp-web.js'); // Mudança Buttons
+const config = JSON.parse(fs.readFileSync('./config.json', 'utf-8')); // Carrega o config externo
+
 const client = new Client();
 // serviço de leitura do qr code
 client.on('qr', qr => {
@@ -28,13 +31,13 @@ client.on('message', async msg => {
         await delay(1000); //Delay de 1000 milisegundos mais conhecido como 1 segundo
         const contact = await msg.getContact(); //Pegando o contato
         const name = contact.pushname; //Pegando o nome do contato
-        await client.sendMessage(msg.from,'Olá, ' + name.split(" ")[0] + '! Sou o assistente virtual da lanchonete X. Como posso ajudá-lo hoje? \n\nPara acessar o cardápio, digite 1'); //Primeira mensagem de texto        
+        //await client.sendMessage(msg.from,'Olá, ' + name.split(" ")[0] + '! Sou o assistente virtual da lanchonete X. Como posso ajudá-lo hoje? \n\nPara acessar o cardápio, digite 1'); //Primeira mensagem de texto        
+        await client.sendMessage(msg.from, config.boasVindas.replace('{nome}', name.split(" ")[0]));
 
         await delay(1000); //delay de 1 segundo
         await chat.sendStateTyping(); // Simulando Digitação
         await delay(2000); //Delay de 5 segundos
-    
-        
+                
     }
 
 
@@ -47,15 +50,19 @@ client.on('message', async msg => {
         await chat.sendStateTyping(); // Simulando Digitação
         await delay(1000);
     
-        await client.sendMessage(msg.from, 'Mensagem Exemplo 1');
-        const media = MessageMedia.fromFilePath('./images/Rickrolling_QR_code.png');
+        // await client.sendMessage(msg.from, 'Mensagem Exemplo 1');
+        await client.sendMessage(msg.from, config.respostaCardapio1);
+        //const media = MessageMedia.fromFilePath('./images/Rickrolling_QR_code.png');
+        const media = MessageMedia.fromFilePath(config.imagemCardapio);
         await client.sendMessage(msg.from, media);
     
         await delay(1000); // delay de 3 segundos
         await chat.sendStateTyping(); // Simulando Digitação
         await delay(1000);
     
-        await client.sendMessage(msg.from, 'Mensagem Exemplo 2');
+        //await client.sendMessage(msg.from, 'Mensagem Exemplo 2');
+        await client.sendMessage(msg.from, config.respostaCardapio2);       
+
     }
     
 
@@ -63,3 +70,5 @@ client.on('message', async msg => {
 
 
 });
+
+//Ativação: node chatbot.js
