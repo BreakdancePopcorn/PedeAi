@@ -12,7 +12,7 @@ Funções planejadas:
 Botões
 Customização simplística
 ```
-Configurações:
-IDE > Visual Studio Code
-Linguagem > Javascript, CSS e Java
-Dependencies > [TBA]
+Configurações:  
+IDE > Visual Studio Code;  
+Linguagem > Javascript, CSS e Java;  
+Dependencies > [TBA]  
