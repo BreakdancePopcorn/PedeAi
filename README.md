@@ -1,3 +1,4 @@
+Olá, sou Arthur Nunes e este é o:
 # PedeAí
 > Bot de pedidos criado pelos estudantes de ADS da faculdade Unisepe - Registro
 
@@ -11,5 +12,7 @@ Funções planejadas:
 Botões
 Customização simplística
 ```
-Arquivos adicionais (temporariamente no Drive):
-https://drive.google.com/file/d/1WntBhvNiqPJdfHMPo0pNxB_vYr0mloQd/view?usp=drive_link
+Configurações:
+IDE > Visual Studio Code
+Linguagem > Javascript, CSS e Java
+Dependencies > [TBA]
